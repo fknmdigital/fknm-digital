@@ -37,12 +37,16 @@ export default function Home() {
 
   return (
     <>
+      {/* Animierter Hintergrund */}
       <div ref={container} style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', zIndex: -1 }} />
 
+      {/* Globales Styling */}
       <style jsx global>{`
         body {
           background: #000000 !important;
           color: #ffffff;
+          font-family: system-ui, sans-serif;
+          line-height: 1.6;
         }
         .container {
           width: 90%;
@@ -59,6 +63,7 @@ export default function Home() {
           align-items: center;
           border-radius: 6px;
           font-weight: bold;
+          font-size: 1.25rem;
         }
         h1, h2, h3, h4 {
           color: white;
@@ -91,12 +96,18 @@ export default function Home() {
         footer a {
           color: #2563EB;
         }
+        @media (max-width: 600px) {
+          h1 { font-size: 1.8rem; }
+          .container { padding: 1.5rem 0; }
+        }
       `}</style>
 
+      {/* Header */}
       <header className="container">
         <div className="logo" aria-label="FKNM Digital Logo">FKNM</div>
       </header>
 
+      {/* Hauptinhalt */}
       <main className="container">
         <section>
           <h1>Wir bringen dein Unternehmen online – mit Stil & Automatisierung.</h1>
@@ -187,29 +198,51 @@ export default function Home() {
           <a href="https://calendly.com/fknm-digital/30min" className="btn" target="_blank" rel="noopener">Termin buchen</a>
         </section>
 
+        {/* IMPRESSUM */}
         <section id="impressum">
           <h2>Impressum</h2>
           <div className="card">
             <p><strong>Angaben gemäß § 5 TMG:</strong></p>
-            <p>Felix Frank Klemens und Nils Müller<br />Unterstraße 21<br />54317 Osburg<br />Deutschland</p>
+            <p>
+              Felix Frank Klemens und Nils Müller<br />
+              Unterstraße 21<br />
+              54317 Osburg<br />
+              Deutschland
+            </p>
             <p><strong>Kontakt:</strong><br />E-Mail: fknm.digital@gmail.com</p>
+            <p><strong>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:</strong><br />
+              Felix Frank Klemens und Nils Müller<br />
+              Unterstraße 21, 54317 Osburg
+            </p>
           </div>
         </section>
 
+        {/* DATENSCHUTZ */}
         <section id="datenschutz">
           <h2>Datenschutzerklärung</h2>
           <div className="card">
-            <p><strong>Verantwortlich:</strong> Felix Frank Klemens und Nils Müller, Unterstraße 21, 54317 Osburg</p>
-            <p>Beim Aufruf unserer Website werden keine personenbezogenen Daten erhoben.</p>
+            <p><strong>1. Name und Kontaktdaten des Verantwortlichen</strong></p>
+            <p>
+              Verantwortlich im Sinne der DSGVO:<br />
+              Felix Frank Klemens und Nils Müller<br />
+              Unterstraße 21, 54317 Osburg<br />
+              E-Mail: fknm.digital@gmail.com
+            </p>
+            <p><strong>2. Erhebung und Speicherung personenbezogener Daten</strong></p>
+            <p>Beim Aufruf unserer Website werden keine personenbezogenen Daten erhoben. Bei Kontaktaufnahme werden Ihre Daten zur Bearbeitung gespeichert und nach Erledigung gelöscht.</p>
+            <p><strong>4. Einsatz von Tidio-Chatbot</strong></p>
+            <p>Unser Chatbot speichert Chats nur, wenn Sie aktiv eine Nachricht senden. Daten werden in der EU gespeichert.</p>
           </div>
         </section>
       </main>
 
+      {/* Footer */}
       <footer className="container">
-        <p>© 2025 FKNM Digital</p>
+        <p>© 2025 FKNM Digital – Websites & Chatbots mit Stil</p>
         <a href="#impressum">Impressum</a> | <a href="#datenschutz">Datenschutz</a>
       </footer>
 
+      {/* Tidio Chatbot */}
       <script src="//code.tidio.co/ydzqdxqp9yiyfs3zaqkhgrmza5q0sqej.js" async></script>
     </>
   );

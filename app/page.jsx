@@ -7,49 +7,91 @@ export default function Home() {
   const container = useRef(null);
 
   useEffect(() => {
-    // Lade tsParticles nur, wenn das Element existiert
-    if (!container.current) return;
-
-    // Initialisiere tsParticles
-    import('tsparticles').then(({ tsParticles }) => {
-      tsParticles.load(container.current, {
-        fpsLimit: 30,
-        particles: {
-          number: { value: 80, density: { enable: true, area: 800 } },
-          color: { value: "#00e5ff" }, // Türkis-Leuchtfarbe
-          opacity: { value: 0.5 },
-          size: { value: { min: 1, max: 3 } },
-          move: {
-            enable: true,
-            speed: 0.5,
-            direction: "none",
-            random: true,
-            straight: false,
-            outModes: { default: "out" }
-          }
-        },
-        interactivity: {
-          events: {
-            onhover: { enable: false },
-            onclick: { enable: false }
-          }
-        },
-        background: {
-          color: "#000000", // Schwarz als Hintergrund
-          image: "url('')",
-          position: "center",
-          repeat: "no-repeat",
-          size: "cover"
-        },
-        detectRetina: true
-      });
-    });
+    if (typeof window !== 'undefined') {
+      const script = document.createElement('script');
+      script.src = 'https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js';
+      script.onload = () => {
+        window.tsParticles.load(container.current, {
+          fpsLimit: 30,
+          particles: {
+            number: { value: 80 },
+            color: { value: "#00e5ff" },
+            opacity: { value: 0.5 },
+            size: { value: { min: 1, max: 3 } },
+            move: {
+              enable: true,
+              speed: 0.5,
+              direction: "none",
+              random: true,
+              straight: false
+            }
+          },
+          interactivity: { events: { onhover: { enable: false } } },
+          background: { color: "#000000" },
+          detectRetina: true
+        });
+      };
+      document.head.appendChild(script);
+    }
   }, []);
 
   return (
     <>
-      {/* Animierter Hintergrund */}
       <div ref={container} style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', zIndex: -1 }} />
+
+      <style jsx global>{`
+        body {
+          background: #000000 !important;
+          color: #ffffff;
+        }
+        .container {
+          width: 90%;
+          max-width: 1000px;
+          margin: 0 auto;
+          padding: 2rem 0;
+        }
+        .logo {
+          background: #0A1F3C;
+          color: white;
+          padding: 0 18px;
+          height: 44px;
+          display: flex;
+          align-items: center;
+          border-radius: 6px;
+          font-weight: bold;
+        }
+        h1, h2, h3, h4 {
+          color: white;
+          margin-bottom: 1rem;
+        }
+        p, li {
+          color: #e2e8f0;
+        }
+        .card {
+          background: rgba(10, 31, 60, 0.3);
+          border: 1px solid rgba(255,255,255,0.1);
+          border-radius: 12px;
+          padding: 1.5rem;
+          margin-top: 1.5rem;
+        }
+        .btn {
+          display: inline-block;
+          background: #2563EB;
+          color: white;
+          padding: 10px 24px;
+          border-radius: 30px;
+          text-decoration: none;
+          font-weight: 600;
+        }
+        footer {
+          text-align: center;
+          padding: 2rem 0;
+          color: #94a3b8;
+        }
+        footer a {
+          color: #2563EB;
+        }
+      `}</style>
 
       <header className="container">
         <div className="logo" aria-label="FKNM Digital Logo">FKNM</div>
@@ -145,50 +187,29 @@ export default function Home() {
           <a href="https://calendly.com/fknm-digital/30min" className="btn" target="_blank" rel="noopener">Termin buchen</a>
         </section>
 
-        {/* IMPRESSUM */}
         <section id="impressum">
           <h2>Impressum</h2>
           <div className="card">
             <p><strong>Angaben gemäß § 5 TMG:</strong></p>
-            <p>
-              Felix Frank Klemens und Nils Müller<br />
-              Unterstraße 21<br />
-              54317 Osburg<br />
-              Deutschland
-            </p>
+            <p>Felix Frank Klemens und Nils Müller<br />Unterstraße 21<br />54317 Osburg<br />Deutschland</p>
             <p><strong>Kontakt:</strong><br />E-Mail: fknm.digital@gmail.com</p>
-            <p><strong>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:</strong><br />
-              Felix Frank Klemens und Nils Müller<br />
-              Unterstraße 21, 54317 Osburg
-            </p>
           </div>
         </section>
 
-        {/* DATENSCHUTZ */}
         <section id="datenschutz">
           <h2>Datenschutzerklärung</h2>
           <div className="card">
-            <p><strong>1. Name und Kontaktdaten des Verantwortlichen</strong></p>
-            <p>
-              Verantwortlich im Sinne der DSGVO:<br />
-              Felix Frank Klemens und Nils Müller<br />
-              Unterstraße 21, 54317 Osburg<br />
-              E-Mail: fknm.digital@gmail.com
-            </p>
-            <p><strong>2. Erhebung und Speicherung personenbezogener Daten</strong></p>
-            <p>Beim Aufruf unserer Website werden keine personenbezogenen Daten erhoben. Bei Kontaktaufnahme werden Ihre Daten zur Bearbeitung gespeichert und nach Erledigung gelöscht.</p>
-            <p><strong>4. Einsatz von Tidio-Chatbot</strong></p>
-            <p>Unser Chatbot speichert Chats nur, wenn Sie aktiv eine Nachricht senden. Daten werden in der EU gespeichert.</p>
+            <p><strong>Verantwortlich:</strong> Felix Frank Klemens und Nils Müller, Unterstraße 21, 54317 Osburg</p>
+            <p>Beim Aufruf unserer Website werden keine personenbezogenen Daten erhoben.</p>
           </div>
         </section>
       </main>
 
       <footer className="container">
-        <p>© 2025 FKNM Digital – Websites & Chatbots mit Stil</p>
+        <p>© 2025 FKNM Digital</p>
         <a href="#impressum">Impressum</a> | <a href="#datenschutz">Datenschutz</a>
       </footer>
 
-      {/* Tidio Chatbot */}
       <script src="//code.tidio.co/ydzqdxqp9yiyfs3zaqkhgrmza5q0sqej.js" async></script>
     </>
   );

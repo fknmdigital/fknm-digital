@@ -1,10 +1,56 @@
 'use client';
 
 import Link from 'next/link';
+import { useEffect, useRef } from 'react';
 
 export default function Home() {
+  const container = useRef(null);
+
+  useEffect(() => {
+    // Lade tsParticles nur, wenn das Element existiert
+    if (!container.current) return;
+
+    // Initialisiere tsParticles
+    import('tsparticles').then(({ tsParticles }) => {
+      tsParticles.load(container.current, {
+        fpsLimit: 30,
+        particles: {
+          number: { value: 80, density: { enable: true, area: 800 } },
+          color: { value: "#00e5ff" }, // Türkis-Leuchtfarbe
+          opacity: { value: 0.5 },
+          size: { value: { min: 1, max: 3 } },
+          move: {
+            enable: true,
+            speed: 0.5,
+            direction: "none",
+            random: true,
+            straight: false,
+            outModes: { default: "out" }
+          }
+        },
+        interactivity: {
+          events: {
+            onhover: { enable: false },
+            onclick: { enable: false }
+          }
+        },
+        background: {
+          color: "#000000", // Schwarz als Hintergrund
+          image: "url('')",
+          position: "center",
+          repeat: "no-repeat",
+          size: "cover"
+        },
+        detectRetina: true
+      });
+    });
+  }, []);
+
   return (
     <>
+      {/* Animierter Hintergrund */}
+      <div ref={container} style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', zIndex: -1 }} />
+
       <header className="container">
         <div className="logo" aria-label="FKNM Digital Logo">FKNM</div>
       </header>
@@ -142,31 +188,8 @@ export default function Home() {
         <a href="#impressum">Impressum</a> | <a href="#datenschutz">Datenschutz</a>
       </footer>
 
-      {/* Partikel-Hintergrund – direkt im HTML */}
-      <script dangerouslySetInnerHTML={{
-        __html: `
-          const script = document.createElement('script');
-          script.src = 'https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js';
-          script.onload = () => {
-            tsParticles.load('tsparticles', {
-              fpsLimit: 30,
-              particles: {
-                number: { value: 12 },
-                color: { value: "#2563EB" },
-                opacity: { value: 0.15 },
-                size: { value: { min: 1, max: 4 } },
-                move: { enable: true, speed: 0.7 }
-              },
-              interactivity: { detectsOn: "canvas", events: { onhover: { enable: false } } }
-            });
-            const div = document.createElement('div');
-            div.id = 'tsparticles';
-            div.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;pointer-events:none';
-            document.body.appendChild(div);
-          };
-          document.head.appendChild(script);
-        `
-      }} />
+      {/* Tidio Chatbot */}
+      <script src="//code.tidio.co/ydzqdxqp9yiyfs3zaqkhgrmza5q0sqej.js" async></script>
     </>
   );
 }

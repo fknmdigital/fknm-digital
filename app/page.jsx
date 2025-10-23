@@ -38,22 +38,46 @@ export default function Home() {
       {/* Hintergrund */}
       <div ref={container} style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', zIndex: -1 }} />
 
-      {/* Inhalt */}
-      <div style={{ position: 'relative', color: 'white', padding: '2rem', fontFamily: 'system-ui', maxWidth: '800px', margin: '0 auto' }}>
-        <h1>Wir bringen dein Unternehmen online</h1>
-        <p>Moderne Websites & Chatbots – in 7 Tagen.</p>
-        <h2>Webdesign</h2>
-        <p>Klare, schnelle Websites – mobil-optimiert.</p>
-        <h2>Chatbot-Integration</h2>
-        <p>Automatisierte Kommunikation – 24/7.</p>
-        <h2>Impressum</h2>
-        <p>Felix Frank Klemens und Nils Müller<br />Unterstraße 21, 54317 Osburg<br />E-Mail: fknm.digital@gmail.com</p>
-        <a href="https://calendly.com/fknm-digital/30min" style={{ display: 'inline-block', background: '#2563EB', color: 'white', padding: '10px 20px', borderRadius: '30px', textDecoration: 'none', marginTop: '1rem' }}>
+      {/* Inhalt – sichtbar über Hintergrund */}
+      <div style={{
+        position: 'relative',
+        color: 'white',
+        padding: '2rem',
+        fontFamily: 'system-ui, sans-serif',
+        maxWidth: '800px',
+        margin: '0 auto',
+        minHeight: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center'
+      }}>
+        <h1>Willkommen bei FKNM Digital</h1>
+        <p>Deine Website in 7 Tagen – inkl. Chatbot & Go-Live.</p>
+        <p><strong>Leistungen:</strong></p>
+        <ul>
+          <li>Webdesign</li>
+          <li>Website-Relaunch</li>
+          <li>Chatbot-Integration</li>
+        </ul>
+        <a
+          href="https://calendly.com/fknm-digital/30min"
+          target="_blank"
+          rel="noopener"
+          style={{
+            display: 'inline-block',
+            background: '#2563EB',
+            color: 'white',
+            padding: '10px 20px',
+            borderRadius: '30px',
+            textDecoration: 'none',
+            marginTop: '1rem'
+          }}
+        >
           Termin buchen
         </a>
       </div>
 
-      {/* Tidio */}
+      {/* Tidio Chatbot */}
       <script src="//code.tidio.co/ydzqdxqp9yiyfs3zaqkhgrmza5q0sqej.js" async></script>
     </>
   );

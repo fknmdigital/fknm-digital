@@ -115,6 +115,7 @@ export default function Home() {
         margin: '0 auto',
         lineHeight: 1.6
       }}>
+        {/* Dein bestehender Inhalt – unverändert */}
         <header style={{ textAlign: 'center', marginBottom: '2rem' }}>
           <div style={{
             background: '#0A1F3C',
@@ -274,6 +275,55 @@ export default function Home() {
           >
             🚀 Jetzt Termin buchen
           </a>
+        </section>
+
+        {/* =============== IMPRESSUM =============== */}
+        <section style={{
+          marginTop: '5rem',
+          paddingTop: '2.5rem',
+          borderTop: '1px solid rgba(255,255,255,0.1)',
+          background: 'white',
+          color: '#1e293b',
+          padding: '2rem',
+          borderRadius: '16px'
+        }}>
+          <h2 style={{ color: '#0A1F3C', marginBottom: '1.2rem' }}>Impressum</h2>
+          <p><strong>fknm digital</strong><br />
+          Felix Frank Klemens & Nils Müller<br />
+          Unterstraße 21<br />
+          54317 Osburg<br />
+          Deutschland</p>
+          <p style={{ marginTop: '1rem' }}><strong>Kontakt:</strong><br />
+          Telefon: <a href="tel:+4915122855923" style={{ color: '#2563EB', textDecoration: 'underline' }}>+49 151 22855923</a><br />
+          E-Mail: <a href="mailto:fknm.digital@gmail.com" style={{ color: '#2563EB', textDecoration: 'underline' }}>fknm.digital@gmail.com</a></p>
+          <p style={{ marginTop: '1rem' }}><strong>Verantwortlich gemäß § 55 Abs. 2 RStV:</strong><br />
+          Felix Frank Klemens & Nils Müller</p>
+        </section>
+
+        {/* =============== DATENSCHUTZERKLÄRUNG =============== */}
+        <section style={{
+          marginTop: '2rem',
+          background: 'white',
+          color: '#1e293b',
+          padding: '2rem',
+          borderRadius: '16px'
+        }}>
+          <h2 style={{ color: '#0A1F3C', marginBottom: '1.2rem' }}>Datenschutzerklärung</h2>
+          <p><strong>Verantwortlich:</strong> fknm digital – Felix Frank Klemens & Nils Müller (siehe <a href="#impressum" style={{ color: '#2563EB', textDecoration: 'underline' }}>Impressum</a>).</p>
+
+          <h3 style={{ fontWeight: '600', marginTop: '1.2rem' }}>1. Erhebung personenbezogener Daten</h3>
+          <p>Wir erheben personenbezogene Daten nur, soweit dies zur Erbringung unserer Dienstleistungen (z. B. Webentwicklung, Chatbot-Integration) erforderlich ist.</p>
+
+          <h3 style={{ fontWeight: '600', marginTop: '1.2rem' }}>2. Kontakt per E-Mail</h3>
+          <p>Bei Anfragen speichern wir Ihre Daten ausschließlich zur Bearbeitung – ohne Weitergabe an Dritte.</p>
+
+          <h3 style={{ fontWeight: '600', marginTop: '1.2rem' }}>3. Hosting</h3>
+          <p>Unsere Website wird über Vercel gehostet. Weitere Informationen: <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener" style={{ color: '#2563EB', textDecoration: 'underline' }}>Vercel Privacy Policy</a>.</p>
+
+          <h3 style={{ fontWeight: '600', marginTop: '1.2rem' }}>4. Ihre Rechte</h3>
+          <p>Sie haben das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung Ihrer Daten.</p>
+
+          <p style={{ fontSize: '0.9rem', color: '#64748b', marginTop: '1.5rem' }}>Stand: 25. Oktober 2025</p>
         </section>
 
         <style jsx>{`
